@@ -1,0 +1,55 @@
+name: BTicino C300X App
+version: "1.0.0"
+slug: bticino_c300x_app
+description: Home Assistant OS App for BTicino/Legrand Classe 300X/C300X with MQTT Discovery, door opener, doorbell, answering machine control, SSH loopback live video and answering-machine clip sync
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+startup: application
+boot: auto
+init: false
+host_network: true
+webui: http://[HOST]:[PORT:8099]/
+ports:
+  8099/tcp: 8099
+ports_description:
+  8099/tcp: BTicino C300X App web interface, live video and answering-machine clips
+stage: stable
+map:
+  - type: media
+    read_only: false
+options:
+  bticino_host: ""
+  mqtt_host: ""
+  mqtt_username: ""
+  mqtt_password: ""
+  log_level: info
+  video_mode: ssh_loopback
+  ssh_username: root2
+  ssh_password: pwned123
+  ssh_port: 22
+  mqtt_port: 1883
+  http_port: 8099
+  stream_udp_port: 5007
+  media_path: /media/bticino/messages
+  ab_remote_path: /home/bticino/cfg/extra/47/messages
+  ab_sync_interval: 60
+schema:
+  bticino_host: str
+  mqtt_host: str
+  mqtt_username: str
+  mqtt_password: password
+  log_level: list(info|debug)
+  video_mode: list(ssh_loopback|mqtt_direct|off)
+  ssh_username: str
+  ssh_password: password
+  ssh_port: int
+  mqtt_port: int
+  http_port: int
+  stream_udp_port: list(5007|5002)
+  media_path: str
+  ab_remote_path: str
+  ab_sync_interval: int

@@ -1,0 +1,48 @@
+configuration:
+  bticino_host:
+    name: BTicino IP address
+    description: IP address of the Classe 300X/C300X.
+  mqtt_host:
+    name: MQTT broker IP address
+    description: IP address of Home Assistant/Mosquitto.
+  mqtt_username:
+    name: MQTT username
+    description: Username for the Mosquitto broker.
+  mqtt_password:
+    name: MQTT password
+    description: Password for the Mosquitto broker.
+  log_level:
+    name: Log level
+    description: info for normal output, debug for technical details.
+  video_mode:
+    name: Livestream mode
+    description: ssh_loopback matches the checked firmware. mqtt_direct is only a fallback.
+  ssh_username:
+    name: SSH username
+    description: Default is root2.
+  ssh_password:
+    name: SSH password
+    description: Default is pwned123.
+  ssh_port:
+    name: SSH port
+    description: Default is 22.
+  mqtt_port:
+    name: MQTT port
+    description: Default is 1883.
+  http_port:
+    name: Web interface port
+    description: Default is 8099.
+  stream_udp_port:
+    name: Stream UDP port
+    description: 5007 for high resolution, 5002 for low resolution.
+  media_path:
+    name: Local media path
+    description: Target path in Home Assistant media storage for answering-machine clips.
+  ab_remote_path:
+    name: BTicino answering-machine path
+    description: Source path of answering-machine clips on the C300X.
+  ab_sync_interval:
+    name: Answering-machine sync interval
+    description: Seconds between automatic clip synchronizations.
+network:
+  8099/tcp: Web interface, live video and answering-machine clips
